@@ -105,6 +105,22 @@ class InputIntVariablesDemo {
         result = JOptionPane.showInputDialog("Сколько вам лет? ");
         age = Integer.parseInt(result);
         birth = year - age;
-        JOptionPane.showMessageDialog(null, "Вы родились в " + birth + "году!");
+        JOptionPane.showMessageDialog(null, "Вы родились в " + birth + " году!");
+    }
+}
+class InputDoubleVariablesDemo {
+    public static void main(String[] args) {
+        double mass,height,bmi;
+        String result;
+
+        result=JOptionPane.showInputDialog("Ваш рост в метрах: ");
+        height = Double.parseDouble(result);
+
+        result = JOptionPane.showInputDialog("Ваш вес в киллограммах:");
+        mass = Double.parseDouble(result);
+
+        bmi = mass/height/height;
+        bmi = Math.round(bmi*100)/100.0;
+        JOptionPane.showMessageDialog(null, "Индекс массы тела: " + bmi);
     }
 }
