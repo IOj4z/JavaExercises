@@ -16,7 +16,6 @@ class ConsoleOutputDemo{
     }
 }
 
-
 class InputDialogDemo{
     public static void main(String[] args){
         String text;
@@ -45,7 +44,6 @@ class ShowMeWindowsDemo{
         JOptionPane.showMessageDialog(null,text, title,JOptionPane.INFORMATION_MESSAGE);
     }
 }
-
 
 class ConsoleInputApplication {
     public static void main(String[] args) {
@@ -108,6 +106,7 @@ class InputIntVariablesDemo {
         JOptionPane.showMessageDialog(null, "Вы родились в " + birth + " году!");
     }
 }
+
 class InputDoubleVariablesDemo {
     public static void main(String[] args) {
         double mass,height,bmi;
@@ -124,6 +123,7 @@ class InputDoubleVariablesDemo {
         JOptionPane.showMessageDialog(null, "Индекс массы тела: " + bmi);
     }
 }
+
 class InputVariablesConsoleDemo{
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -145,5 +145,90 @@ class InputVariablesConsoleDemo{
         System.out.println("Здравствуйте, "+name+"!");
         System.out.println("Вы родились в "+(now-age)+" году!");
         System.out.printf("Ваш индекс массы тела: %5.2f\n",bmi);
+    }
+}
+
+class MyClass {
+    int number;
+    char symbol;
+
+    void set(int n, char s) {
+        number = n;
+        symbol = s;
+    }
+
+    String getInfo(){
+        String text = "Число: " + number + "\n";
+        text = "Символы: " + symbol + "\n";
+        return text;
+    }
+}
+
+class UsingObjectWithMethodsDemo {
+    public static void main(String[] args) {
+        MyClass objA = new MyClass();
+        MyClass objB = new MyClass();
+
+        objA.set(100, 'A');
+        objB.set(200, 'B');
+
+        JOptionPane.showMessageDialog(null, objA.getInfo(), "Первый обЪект", JOptionPane.INFORMATION_MESSAGE);
+
+        JOptionPane.showMessageDialog(null, objB.getInfo(), "Второй обЪект", JOptionPane.INFORMATION_MESSAGE);
+    }
+}
+
+class OverloadClass{
+    int number;
+    char symbol;
+
+    void set (int n){
+        number = n;
+    }
+
+    void set(char s){
+        symbol = s;
+    }
+
+    void set(int n,char s){
+        set(n);
+        set(s);
+    }
+
+    void set(){
+        set(0,'Z');
+    }
+
+    void show(){
+        System.out.println("Значение полей "+number+" и "+ symbol);
+    }
+
+    void show(String txt){
+        System.out.println(txt+" значение полей "+ number + " и "+ symbol);
+    }
+
+    void show(String txt1, String txt2){
+        System.out.println(txt1+ ": " + number);
+        System.out.println(txt2+ ": " + symbol);
+    }
+}
+
+class MethodOverloadingDemo{
+    public static void main(String[] args) {
+        OverloadClass objA,objB;
+
+        objA = new OverloadClass();
+        objB = new OverloadClass();
+        objA.set(100);
+        objA.set('A');
+
+        System.out.println("ОбЪект objA:");
+        objA.show();
+        objB.set();
+        objB.show("ОбЪект objB:");
+        objB.set(200, 'B');
+        System.out.println("Объект objB после изменения:");
+        objB.show("Число", "Символ");
+
     }
 }
