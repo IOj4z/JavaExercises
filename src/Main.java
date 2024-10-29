@@ -229,6 +229,30 @@ class MethodOverloadingDemo{
         objB.set(200, 'B');
         System.out.println("Объект objB после изменения:");
         objB.show("Число", "Символ");
+    }
+}
+class MyStaticThemeClass{
+    static int count=0;
 
+    MyStaticThemeClass(){
+        count++;
+        System.out.println("Создан объект номер "+count);
+    }
+
+    static void show(){
+        System.out.println("Количество объектов: "+count);
+    }
+}
+
+class UsingStaticMembersDemo{
+    public static void main(String[] args) {
+        MyStaticThemeClass.show();
+
+        MyStaticThemeClass objA = new MyStaticThemeClass();
+        MyStaticThemeClass objB = new MyStaticThemeClass();
+        MyStaticThemeClass objC = new MyStaticThemeClass();
+        MyStaticThemeClass.show();
+        objB.show();
+        objC.show();
     }
 }
